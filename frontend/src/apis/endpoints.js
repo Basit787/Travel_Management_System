@@ -13,7 +13,7 @@ export const ApiEndpoints = {
 
   //places
   getPlaces: () => `/api/place/getallplaces`,
-  getPlaceById: (id) => `/apiplace/getPlaceById/${id}`,
+  getPlaceById: (id) => `/api/place/getPlaceById/${id}`,
 
   //booking
   bookPlace: () => `/api/booking/bookplace`,
