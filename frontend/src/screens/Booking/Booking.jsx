@@ -110,7 +110,6 @@ const Booking = () => {
                 <span>Check Out</span>
                 <strong>{toDate}</strong>
               </div>
-              zzz
             </section>
 
             <section className="detail-section price-summary">
