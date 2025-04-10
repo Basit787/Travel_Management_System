@@ -10,9 +10,7 @@ function App() {
     <React.Fragment>
       <IndexProviders>
         <Navbar />
-        <main style={{ marginTop: "6rem" }}>
-          <AppRoutes />
-        </main>
+        <AppRoutes />
         <Footer />
         <Toast />
       </IndexProviders>

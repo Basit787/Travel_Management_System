@@ -13,20 +13,23 @@
 
 .custom-carousel .carousel-item {
   text-align: center;
+  height: 600px; /* Fixed height for consistency */
 }
 
 .image-wrapper {
   position: relative;
-  overflow: hidden;
+  height: 100%;
   border-radius: 1rem;
-  max-height: 600px;
+  overflow: hidden;
 }
 
 .carousel-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 1rem;
+  display: block;
 }
 
 .image-overlay {
@@ -110,7 +113,12 @@
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+  .custom-carousel .carousel-item {
+    height: 400px;
+  }
+
   .caption-title {
     font-size: 1.5rem;
   }
@@ -127,10 +135,18 @@
   .carousel-container {
     padding: 0.5rem;
   }
+}
 
-  .carousel-controls {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+@media (max-width: 480px) {
+  .custom-carousel .carousel-item {
+    height: 300px;
+  }
+
+  .caption-title {
+    font-size: 1.2rem;
+  }
+
+  .caption-content {
+    font-size: 0.9rem;
   }
 }

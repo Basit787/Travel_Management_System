@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa";
 import useAuth from "../../context/auth-provider/use-auth";
 import { getUser } from "../../helpers/user.helper";
 import useIsMobile from "../../hooks/useIsMobile";
 import "./Navbar.css";
+import { scrollToTop } from "../../helpers/utils";
 
 const Navbar = () => {
   const user = getUser();
@@ -11,7 +12,6 @@ const Navbar = () => {
   const { logout } = useAuth();
 
   useEffect(() => {
-    // Prevent scrolling when menu is open on mobile
     document.body.style.overflow = menuOpen && isMobile ? "hidden" : "";
   }, [menuOpen, isMobile]);
 
