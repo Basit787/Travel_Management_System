@@ -17,4 +17,6 @@ app.get("/", (req, res) => {
 
 app.use("/api", routes);
 
+module.exports = app;
+
 module.exports.handler = ServerlessHttp(app);
