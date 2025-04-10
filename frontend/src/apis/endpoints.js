@@ -2,20 +2,20 @@ export const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const ApiEndpoints = {
   //auth
-  login: () => `users/login`,
-  register: () => `/users/register`,
+  login: () => `/api/users/login`,
+  register: () => `/api/users/register`,
 
   //contacts
-  getContacts: () => `/contacts/getContacts`,
+  getContacts: () => `/api/contacts/getContacts`,
 
   //locations
-  getLocations: () => `/location/getLocations`,
+  getLocations: () => `/api/location/getLocations`,
 
   //places
-  getPlaces: () => `/place/getallplaces`,
-  getPlaceById: (id) => `place/getPlaceById/${id}`,
+  getPlaces: () => `/api/place/getallplaces`,
+  getPlaceById: (id) => `/apiplace/getPlaceById/${id}`,
 
   //booking
-  bookPlace: () => `/booking/bookplace`,
-  getBooking: (id) => `/booking/getBookingsByUserId/${id}`,
+  bookPlace: () => `/api/booking/bookplace`,
+  getBooking: (id) => `/api/booking/getBookingsByUserId/${id}`,
 };
