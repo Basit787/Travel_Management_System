@@ -1,12 +1,7 @@
-const Room = require("../models/Places");
-const Booking = require("../models/booking");
-const user = require("../models/user");
-const Place = require("../models/Places.js");
-const stripe = require("stripe")(
-  "sk_test_51MjMdXSB50ekGdkVCW6wBg1dO6C9cOra5SqH6ZEXMCRjRkB6TUXdpoxf4kXmxCPsD6e5WiLjsJdszpYzLREF7j0G00BWpCLydQ",
-);
+import Booking from "../models/booking.js";
+import Place from "../models/places.js";
 
-exports.bookplace = async (req, res) => {
+export const bookplace = async (req, res) => {
   const { places, userid, fromDate, toDate, totalAmount, totalDays, token } =
     req.body;
 
@@ -51,7 +46,7 @@ exports.bookplace = async (req, res) => {
   }
 };
 
-exports.getBookById = async (req, res) => {
+export const getBookById = async (req, res) => {
   const userid = req.params.id;
   try {
     const bookings = await Booking.find({ userid: userid });

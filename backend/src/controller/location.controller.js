@@ -1,6 +1,6 @@
-const Location = require("../models/Locations");
+import Location from "../models/locations.js";
 
-exports.getLocation = async (req, res) => {
+export const getLocation = async (req, res) => {
   try {
     const locations = await Location.find({});
     res.send(locations);
@@ -9,7 +9,7 @@ exports.getLocation = async (req, res) => {
   }
 };
 
-exports.getAllBooking = async (req, res) => {
+export const getAllBooking = async (req, res) => {
   try {
     const bookings = await Location.find();
     res.send(bookings);
@@ -18,7 +18,7 @@ exports.getAllBooking = async (req, res) => {
   }
 };
 
-exports.addLocation = async (req, res) => {
+export const addLocation = async (req, res) => {
   try {
     const newlocation = new Location(req.body);
     await newlocation.save();

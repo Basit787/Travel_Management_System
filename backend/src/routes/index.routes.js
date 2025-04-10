@@ -1,11 +1,11 @@
-const express = require("express");
-const bookingRoutes = require("./bookings.route");
-const contactRoutes = require("./contact.route");
-const locationRoutes = require("./location.route");
-const placeRoutes = require("./place.route");
-const userRoutes = require("./users.route");
+import { Router } from "express";
+import bookingRoutes from "./bookings.route.js";
+import contactRoutes from "./contact.route.js";
+import locationRoutes from "./location.route.js";
+import placeRoutes from "./place.route.js";
+import userRoutes from "./users.route.js";
 
-const routes = express.Router();
+const routes = Router();
 
 routes.use("/booking", bookingRoutes);
 routes.use("/contacts", contactRoutes);
@@ -13,4 +13,4 @@ routes.use("/location", locationRoutes);
 routes.use("/place", placeRoutes);
 routes.use("/users", userRoutes);
 
-module.exports = routes;
+export default routes;

@@ -1,14 +1,17 @@
-const { userConstants } = require("../constants/user.constants");
-const {
-  HashedPassword,
+import {
   ComparePassword,
   CreateToken,
-} = require("../helpers/helpers");
-const User = require("../models/user");
+  HashedPassword,
+} from "../helpers/helpers.js";
+import User from "../models/user.js";
+import { userConstants } from "../constants/user.constants.js";
 
-exports.registerUser = async (req, res) => {
-  const { password, ...data } = req.body;
+export const registerUser = async (req, res) => {
+  const { password, email, ...data } = req.body;
   try {
+    const getUser = await User.findOne({ email });
+    if (getUser)
+      return res.status(400).json({ message: "User already exists" });
     const hashedPassword = await HashedPassword(password);
     const user = new User({
       ...data,
@@ -24,7 +27,7 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const getUser = await User.findOne({ email }).select(userConstants);
@@ -53,7 +56,7 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select("-__v");
     res.status(200).json({

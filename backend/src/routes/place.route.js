@@ -1,12 +1,12 @@
-const express = require("express");
-const place = require("../controller/place.controller");
-const { authMiddleware } = require("../middleware/middleware");
+import { Router } from "express";
+import * as place from "../controller/place.controller.js";
+import { authMiddleware } from "../middleware/middleware.js";
 
-const placeRoutes = express.Router();
+const placeRoutes = Router();
 
 placeRoutes.get("/getallplaces", place.getAllPlaces);
 placeRoutes.get("/getPlaceById/:id", place.getPlaceById);
 placeRoutes.get("/getPlaceByIdFood", place.getPlaceByIdFood);
 placeRoutes.post("/addroom", authMiddleware, place.addRoom);
 
-module.exports = placeRoutes;
+export default placeRoutes;

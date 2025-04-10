@@ -1,16 +1,16 @@
-const express = require("express");
-const user = require("../controller/users.controller");
-const {
+import { Router } from "express";
+import * as user from "../controller/users.controller.js";
+import {
   authMiddleware,
   validation,
   isAdmin,
-} = require("../middleware/middleware");
-const { loginSchema, registerSchema } = require("../lib/zod.schema");
+} from "../middleware/middleware.js";
+import { loginSchema, registerSchema } from "../lib/zod.schema.js";
 
-const userRoutes = express.Router();
+const userRoutes = Router();
 
 userRoutes.post("/register", validation(registerSchema), user.registerUser);
 userRoutes.post("/login", validation(loginSchema), user.login);
 userRoutes.get("/getAllUsers", authMiddleware, isAdmin, user.getAllUsers);
 
-module.exports = userRoutes;
+export default userRoutes;

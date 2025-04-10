@@ -1,9 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const { dbConnect } = require("../src/db");
-const routes = require("../src/routes/index.routes");
-const ServerlessHttp = require("serverless-http");
-require("dotenv/config");
+import express from "express";
+import cors from "cors";
+import { dbConnect } from "../src/db/index.js";
+import routes from "../src/routes/index.routes.js";
+import ServerlessHttp from "serverless-http";
+import "dotenv/config";
 
 const app = express();
 app.use(express.json());
@@ -15,8 +15,9 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Tourism Management API" });
 });
 
+app.listen(process.env.PORT);
+
 app.use("/api", routes);
 
-module.exports = app;
-
-module.exports.handler = ServerlessHttp(app);
+export default app;
+export const handler = ServerlessHttp(app);

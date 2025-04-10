@@ -1,6 +1,6 @@
-const Place = require("../models/Places");
+import Place from "../models/places.js";
 
-exports.getAllPlaces = async (req, res) => {
+export const getAllPlaces = async (req, res) => {
   try {
     const places = await Place.find({});
     res.json(places);
@@ -10,7 +10,7 @@ exports.getAllPlaces = async (req, res) => {
   }
 };
 
-exports.getPlaceById = async (req, res) => {
+export const getPlaceById = async (req, res) => {
   const id = req.params.id;
   try {
     const place = await Place.findOne({ _id: id });
@@ -20,7 +20,7 @@ exports.getPlaceById = async (req, res) => {
   }
 };
 
-exports.getPlaceByIdFood = async (req, res) => {
+export const getPlaceByIdFood = async (req, res) => {
   const placesid = req.body.placesid;
 
   try {
@@ -31,7 +31,7 @@ exports.getPlaceByIdFood = async (req, res) => {
   }
 };
 
-exports.addRoom = async (req, res) => {
+export const addRoom = async (req, res) => {
   try {
     const newRoom = new Place(req.body);
     await newRoom.save();

@@ -1,6 +1,6 @@
-const Contact = require("../models/Contacts");
+import Contact from "../models/contacts.js";
 
-exports.getContacts = async (req, res) => {
+export const getContacts = async (req, res) => {
   try {
     const contacts = await Contact.find({});
     res.send(contacts);
@@ -9,7 +9,7 @@ exports.getContacts = async (req, res) => {
   }
 };
 
-exports.addContact = async (req, res) => {
+export const addContact = async (req, res) => {
   try {
     const contactData = req.body;
     const newContact = new Contact({ ...contactData });

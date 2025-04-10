@@ -1,1 +1,1 @@
-exports.userConstants = ["-__v", "-createdAt", "-updatedAt"];
+export const userConstants = ["-__v", "-createdAt", "-updatedAt"];

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const bookingSchema = mongoose.Schema(
+const bookingSchema = Schema(
   {
     places: {
       type: String,
@@ -45,6 +45,6 @@ const bookingSchema = mongoose.Schema(
   },
 );
 
-const bookingModel = mongoose.model("bookings", bookingSchema);
+const Booking = model("bookings", bookingSchema);
 
-module.exports = bookingModel;
+export default Booking;

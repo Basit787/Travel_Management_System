@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const locationSchema = mongoose.Schema(
   {
@@ -33,5 +33,5 @@ const locationSchema = mongoose.Schema(
     timestamps: true,
   },
 );
-const locationsModel = mongoose.model("locations", locationSchema);
-module.exports = locationsModel;
+const Location = mongoose.model("locations", locationSchema);
+export default Location;

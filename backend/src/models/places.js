@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const placeSchema = mongoose.Schema(
+const placeSchema = Schema(
   {
     name: {
       type: String,
@@ -57,5 +57,5 @@ const placeSchema = mongoose.Schema(
   },
 );
 
-const placesModel = mongoose.model("place", placeSchema);
-module.exports = placesModel;
+const Place = model("place", placeSchema);
+export default Place;

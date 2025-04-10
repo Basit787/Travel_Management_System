@@ -1,6 +1,6 @@
-const { VerifyToken } = require("../helpers/helpers");
+import { VerifyToken } from "../helpers/helpers.js";
 
-exports.authMiddleware = async (req, res, next) => {
+export const authMiddleware = async (req, res, next) => {
   try {
     const headers = req.header("Authorization");
     if (!headers)
@@ -20,7 +20,7 @@ exports.authMiddleware = async (req, res, next) => {
   }
 };
 
-exports.isAdmin = (req, res, next) => {
+export const isAdmin = (req, res, next) => {
   const user = req.user;
   if (user.role !== "admin") {
     return res.json({ message: "Only admin can perform this task" });
@@ -28,7 +28,7 @@ exports.isAdmin = (req, res, next) => {
   next();
 };
 
-exports.validation = (schema) => {
+export const validation = (schema) => {
   return async (req, res, next) => {
     const data = req.body;
     try {

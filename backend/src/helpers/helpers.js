@@ -1,10 +1,10 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-require("dotenv/config");
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-exports.HashedPassword = async (password) => {
+export const HashedPassword = async (password) => {
   try {
     return await bcrypt.hash(password, 10);
   } catch (error) {
@@ -13,7 +13,7 @@ exports.HashedPassword = async (password) => {
   }
 };
 
-exports.ComparePassword = async (userPassword, hashPassword) => {
+export const ComparePassword = async (userPassword, hashPassword) => {
   try {
     return await bcrypt.compare(userPassword, hashPassword);
   } catch (error) {
@@ -22,7 +22,7 @@ exports.ComparePassword = async (userPassword, hashPassword) => {
   }
 };
 
-exports.CreateToken = (payload) => {
+export const CreateToken = (payload) => {
   try {
     return jwt.sign(payload, SECRET_KEY, { expiresIn: "1h" });
   } catch (error) {
@@ -31,7 +31,7 @@ exports.CreateToken = (payload) => {
   }
 };
 
-exports.VerifyToken = (token) => {
+export const VerifyToken = (token) => {
   try {
     return jwt.verify(token, SECRET_KEY);
   } catch (error) {
