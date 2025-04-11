@@ -4,6 +4,7 @@ import SuspenseWrapper from "../components/Lazy-Loading/Suspense-Wrapper";
 import AuthRoute from "./auth.route";
 import ProtectedRoutes from "./protected.route";
 import PublicRoutes from "./public.routes";
+import Loader from "../components/Loader/Loader";
 
 const Profile = lazy(() => import("../screens/Profile/Profile"));
 const About = lazy(() => import("../screens/About/About"));
@@ -82,7 +83,7 @@ const router = createBrowserRouter([
 ]);
 
 const AppRoutes = () => {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} fallbackElement={<Loader />} />;
 };
 
 export default AppRoutes;

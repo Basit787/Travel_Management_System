@@ -80,7 +80,7 @@ const Booking = () => {
 
         <div className="booking-body">
           <div className="booking-image">
-            <img src={place.imageurls[0]} alt={place.name} />
+            <img src={place.imageurls[0]} alt={place.name} loading="lazy" />
           </div>
 
           <div className="details-grid">

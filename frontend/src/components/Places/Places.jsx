@@ -24,6 +24,7 @@ const Places = React.memo(({ places, fromDate, toDate }) => {
             src={places.imageurls[0]}
             className="place-thumbnail"
             alt={places.name}
+            loading="lazy"
           />
         </div>
       </div>
@@ -77,7 +78,12 @@ const Places = React.memo(({ places, fromDate, toDate }) => {
           <Carousel className="place-carousel">
             {places.imageurls.map((url) => (
               <Carousel.Item key={url}>
-                <img className="carousel-image" src={url} alt={places.name} />
+                <img
+                  className="carousel-image"
+                  src={url}
+                  alt={places.name}
+                  loading="lazy"
+                />
               </Carousel.Item>
             ))}
           </Carousel>

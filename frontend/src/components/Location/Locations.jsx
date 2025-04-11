@@ -18,6 +18,7 @@ const Locations = React.memo(({ locations }) => {
           src={locations.limageurls?.[0] ?? defaultImage}
           alt={locations.lname}
           className="location-image"
+          loading="lazy"
         />
       </div>
 

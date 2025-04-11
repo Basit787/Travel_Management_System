@@ -5,7 +5,7 @@ const FoodItem = React.memo(({ imageUrl, time, health, description, type }) => {
   return (
     <div className="food-container">
       <div className="food-left">
-        <img src={imageUrl} alt={`Food served during ${time}`} />
+        <img src={imageUrl} alt={`Food served during ${time}`} loading="lazy"/>
       </div>
       <div className="food-right">
         <div className="food-details">

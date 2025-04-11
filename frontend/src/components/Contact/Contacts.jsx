@@ -25,6 +25,7 @@ const Contact = React.memo(({ contacts }) => {
             src={cimageurls[0] ?? defaultImageContact}
             alt={cname}
             className="contact-image"
+            loading="lazy"
           />
           <div className="image-overlay">
             <h2 className="contact-name">{cname}</h2>
