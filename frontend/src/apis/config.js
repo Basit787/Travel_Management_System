@@ -34,25 +34,7 @@ ApiInstance.interceptors.response.use(
     if (!error.response) {
       toast.error("Network Error: Please check your connection");
     } else {
-      switch (error.response.status) {
-        case 400:
-          toast.error("Bad Request");
-          break;
-        case 401:
-          toast.error("Unauthorized");
-          break;
-        case 403:
-          toast.error("Forbidden");
-          break;
-        case 404:
-          toast.error("Not Found");
-          break;
-        case 500:
-          toast.error("Internal Server Error");
-          break;
-        default:
-          toast.error("Something went wrong");
-      }
+      toast.error("Something went wrong");
     }
     return Promise.reject(error);
   },

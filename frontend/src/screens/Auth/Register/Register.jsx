@@ -39,7 +39,7 @@ const Register = () => {
         console.log(data);
         toast.success("User registered successfully");
         resetForm();
-        navigate(-1);
+        changeValue(0);
       } catch (error) {
         console.error(error);
         toast.error("Failed to register");
