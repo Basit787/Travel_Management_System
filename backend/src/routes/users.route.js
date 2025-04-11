@@ -5,11 +5,11 @@ import {
   validation,
   isAdmin,
 } from "../middleware/middleware.js";
-import { loginSchema } from "../lib/zod.schema.js";
+import { loginSchema, registerSchema } from "../lib/zod.schema.js";
 
 const userRoutes = Router();
 
-userRoutes.post("/register", user.registerUser);
+userRoutes.post("/register", validation(registerSchema), user.registerUser);
 userRoutes.post("/login", validation(loginSchema), user.login);
 userRoutes.get("/getAllUsers", authMiddleware, isAdmin, user.getAllUsers);
 

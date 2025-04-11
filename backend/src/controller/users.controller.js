@@ -15,6 +15,7 @@ export const registerUser = async (req, res) => {
     const hashedPassword = await HashedPassword(password);
     const user = new User({
       ...data,
+      email: email,
       password: hashedPassword,
     });
     const saveUser = await user.save();
