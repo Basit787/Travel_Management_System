@@ -26,14 +26,14 @@ const Contact = () => {
       </div>
 
       <div className="contacts-grid">
-        {contacts.map((contact) => (
+        {contacts?.map((contact) => (
           <div className="contact-card-wrapper" key={contact._id}>
             <Contacts contacts={contact} />
           </div>
         ))}
       </div>
 
-      {!contacts.length && (
+      {!contacts?.length && (
         <div className="no-contacts">
           <i className="far fa-address-book"></i>
           <p>No contacts found</p>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Contact.css";
-import { defaultImageContact } from "../../constants/img-placeholder";
+import { defaultImage } from "../../constants/img-placeholder";
 
 const Contact = React.memo(({ contacts }) => {
   const {
@@ -22,7 +22,7 @@ const Contact = React.memo(({ contacts }) => {
       <div className="card-container">
         <div className="image-container">
           <img
-            src={cimageurls[0] ?? defaultImageContact}
+            src={cimageurls[0] ?? defaultImage}
             alt={cname}
             className="contact-image"
             loading="lazy"
@@ -42,7 +42,7 @@ const Contact = React.memo(({ contacts }) => {
             <p className="email">{cemail}</p>
           </div>
 
-          {links.length > 0 && (
+          {links?.length > 0 && (
             <div className="contact-links">
               {links.map((link, index) => (
                 <a

@@ -18,7 +18,7 @@ const Landing = lazy(() => import("../screens/Landing/Landing"));
 const Location = lazy(() => import("../screens/Location/Location"));
 const Place = lazy(() => import("../screens/Place/Place"));
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/auth",
     element: <AuthRoute />,
@@ -80,10 +80,23 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
 
 const AppRoutes = () => {
-  return <RouterProvider router={router} fallbackElement={<Loader />} />;
+  const router = createBrowserRouter(routes, {
+    future: {
+      v7_relativeSplatPath: true,
+    },
+  });
+  return (
+    <RouterProvider
+      router={router}
+      fallbackElement={<Loader />}
+      future={{
+        v7_startTransition: true,
+      }}
+    />
+  );
 };
 
 export default AppRoutes;

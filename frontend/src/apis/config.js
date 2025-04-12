@@ -1,19 +1,23 @@
 import axios from "axios";
-import { BASE_URL } from "./endpoints";
 import { toast } from "react-toastify";
 import { getToken } from "../helpers/user.helper";
+import { BASE_URL } from "./endpoints";
 
 const ApiInstance = axios.create({
   baseURL: BASE_URL,
+  timeout: 1000,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 ApiInstance.interceptors.request.use(
   (config) => {
     const token = getToken();
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers["Authorization"] = `Bearer ${token}`;
     }
-
+    config.withCredentials = false;
     return config;
   },
   (error) => {
@@ -31,11 +35,9 @@ ApiInstance.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (!error.response) {
-      toast.error("Network Error: Please check your connection");
-    } else {
-      toast.error("Something went wrong");
-    }
+    !error.response
+      ? toast.error("Network Error: Please check your connection")
+      : toast.error("Something went wrong");
     return Promise.reject(error);
   },
 );
